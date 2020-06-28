@@ -1,27 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import { Card } from 'lib/Card'
-
-const ThinnerCard = styled(Card)`
-  width: 400px;
-`
+import { Content } from './components/content'
+import { InputForm } from './components/inputForm'
 
 export const App = () => {
+  const [showInputForm, setShowInputForm] = useState(false)
+
+  const handleClick = () => {
+    setShowInputForm(!showInputForm)
+  }
+
   return (
     <div>
-      <ThinnerCard 
-        coverImage="https://www.fillmurray.com/500/300"
-        thumbnailUrl="https://www.fillmurray.com/100/100" 
-        title="Here is my card" 
-        secondaryText="You know you love it!">
-          Children of this card
-        </ThinnerCard>
-
-      <Card title="Look here!" secondaryText="Another card"/>
-
-      <Card>
-        <h1>Hello from the children!</h1>
-      </Card>
+      <Heading>File Archive!</Heading>
+      {!showInputForm && <StyledButton
+        type="button"
+        onClick={() => handleClick()}>
+        Upload file
+      </StyledButton>}
+      {showInputForm && <InputForm />}
+      <Content />
     </div>
   )
 }
+
+const Heading = styled.h1`
+  font-size: 100px;
+  color: #E77A5C;
+  margin: 20px 0 80px 0 ;
+`
+
+const StyledButton = styled.button`
+  width: 150px;
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  background-color: #E77A5C;
+  color: #F1F0EB;
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 30px 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #d65f42;
+  }
+`
