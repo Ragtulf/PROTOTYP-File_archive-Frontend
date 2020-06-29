@@ -1,19 +1,20 @@
-# Technigo React Starter App
+# Prototyp Programming Task 💻🗄
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
+This is my solution to the programming task - File archive. 
+Allowed filetypes are pdf and jpeg. There is a posibility to add metadata. The files are listed in columns and the information is fetched from a database. It is possible to click on a filename and view the content in a new window. There is a possibility to delete an object with a click on the button. 
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
 
-## Usage
+## Tech
 
-1. On GitHub, click the 'use this template' button to create a new repo on your account
-1. Clone the new repo to your computer
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+- React
+- JSX
+- JavaScript
+- Mongoose
+- Cloudinary
+- Styled-Components
+- Flexbox
 
-Alternatively, if you don't want a new git repo on your account;
 
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+## How I did it
+
+I wrote this in React using Mongoose for backend and Cloudinary to store images. The website is styled using styled-components. I started on the backend and the model. Then I worked on the fetches from the frontend and got the logic to work. Lastly I worked on the styling. 
