@@ -6,6 +6,7 @@ import { InputForm } from './components/inputForm'
 export const App = () => {
   const [showInputForm, setShowInputForm] = useState(false)
 
+  // The input form only showes if you push a button. Then that button disappears and the input form mounts. 
   const handleClick = () => {
     setShowInputForm(!showInputForm)
   }

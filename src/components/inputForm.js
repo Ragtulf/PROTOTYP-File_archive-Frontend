@@ -10,6 +10,7 @@ export const InputForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
+    // First this function sends the description and uploadedBy to the database as JSON
     fetch('http://localhost:8080/fileuploads', {
       method: 'POST',
       body: JSON.stringify({
@@ -26,6 +27,7 @@ export const InputForm = () => {
           return res.json()
         }
       })
+      // Then it appends the image as formdata in a seperate fetch
       .then(({ _id }) => {
         const formData = new FormData()
         formData.append('file', fileInput.current.files[0]);

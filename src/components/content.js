@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 export const Content = () => {
   const [files, setFiles] = useState(null)
 
+  // Function to delete an object from database and then refresh
   const handleDeleteAndRefresh = (_id) => {
     fetch(`http://localhost:8080/fileuploads/${_id}`, {
       method: 'DELETE'
@@ -12,7 +13,7 @@ export const Content = () => {
         window.location.reload(false)
       )
   }
-
+  // Fetches the contents of the database
   useEffect(() => {
     fetch('http://localhost:8080/fileuploads')
       .then((res) => res.json())
