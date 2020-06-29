@@ -29,7 +29,6 @@ export const InputForm = () => {
       .then(({ _id }) => {
         const formData = new FormData()
         formData.append('file', fileInput.current.files[0]);
-        // formData.append('name', fileName);
 
         fetch(`http://localhost:8080/fileuploads/${_id}`, {
           method: 'POST',
@@ -41,6 +40,9 @@ export const InputForm = () => {
             setUploadedBy(''),
             setFileName('')
           )
+          .then(() => {
+            window.location.reload(false)
+          })
           .catch((error) => console.log(error))
       })
   }

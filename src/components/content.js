@@ -4,11 +4,13 @@ import styled from 'styled-components/macro'
 export const Content = () => {
   const [files, setFiles] = useState(null)
 
-  const handleDelete = (_id) => {
+  const handleDeleteAndRefresh = (_id) => {
     fetch(`http://localhost:8080/fileuploads/${_id}`, {
       method: 'DELETE'
     })
-    .then()
+      .then(
+        window.location.reload(false)
+      )
   }
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export const Content = () => {
           <StyledA href={item.fileUrl} target="_blank" rel="noopener noreferrer">{item.fileId}</StyledA>
           <Description>{item.description}</Description>
           <UploadedBy>{item.uploadedBy}</UploadedBy>
-          <button type="button" onClick={() => handleDelete(item._id)}>x</button>
+          <DeleteButton type="button" onClick={() => handleDeleteAndRefresh(item._id)}><img src="/x_01.svg" alt="delete button" /></DeleteButton>
         </FileContainer>
       ))}
     </div>
@@ -65,4 +67,21 @@ const Description = styled.p`
 const UploadedBy = styled.p`
   color: #325E86;
   width: 15%;
+  font-weight: 800;
+`
+
+const DeleteButton = styled.button`
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  line-height: 15px;
+  background-color: #edb751;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  align-self: center;
+  padding: 5px 10px;
+
+  &:hover {
+    background-color: #cda88c;
+  }
 `
