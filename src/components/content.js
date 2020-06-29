@@ -17,7 +17,6 @@ export const Content = () => {
     fetch('http://localhost:8080/fileuploads')
       .then((res) => res.json())
       .then((json) => {
-        console.log(json)
         setFiles(json)
       })
   }, [])
